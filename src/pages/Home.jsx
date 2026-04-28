@@ -31,24 +31,35 @@ export default function Home() {
     <div>
       <Navbar />
 
-      {/* HERO — dramatic red skeleton sculpture */}
+      {/* HERO */}
       <section className="hero">
         <div className="hero-media">
           <img
-            src={BASE + "59b58d0b2_150362945_236001824906801_795989140323528436_n1.jpg"}
-            alt="Or Noir — Crimson Reverie"
+            src="https://media.base44.com/images/public/69f0a5ad50ec7e63b687358b/bbd414179_generated_image.png"
+            alt="Or Noir — Fine Art"
+            style={{ objectPosition: "center center" }}
           />
         </div>
         <div className="hero-overlay" />
         <div className="hero-content">
-          <p className="eyebrow">{t.home.eyebrow}</p>
-          <h1>
-            {t.home.h1.map((line, i) => (
-              <span key={i} style={{ display: "block" }}>{line}</span>
-            ))}
+          <p className="eyebrow" style={{ letterSpacing: "0.22em" }}>{t.home.eyebrow}</p>
+
+          <h1 style={{ fontSize: "clamp(38px, 6.5vw, 80px)", lineHeight: 0.92, marginBottom: "0" }}>
+            <span style={{ display: "block", color: "var(--color-text)" }}>Where</span>
+            <span style={{ display: "block", color: "var(--color-accent)" }}>Darkness</span>
+            <span style={{ display: "block", color: "var(--color-text)" }}>Becomes Gold</span>
           </h1>
-          <p>{t.home.sub}</p>
-          <div className="hero-actions">
+
+          <div style={{ width: 48, height: 1, background: "var(--color-accent)", margin: "24px 0" }} />
+
+          <p style={{ fontSize: "clamp(14px, 1.4vw, 17px)", color: "var(--color-text-soft)", maxWidth: "480px", lineHeight: 1.75, margin: "0 0 10px" }}>
+            Or Noir is a Swiss fine-art studio creating singular mixed-media sculptures — built entirely by hand, conceived to endure.
+          </p>
+          <p style={{ fontSize: "clamp(12px, 1.1vw, 14px)", color: "var(--color-text-muted)", maxWidth: "440px", lineHeight: 1.65, fontFamily: "var(--font-label)", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+            Bespoke commissions · Limited editions · Worldwide delivery
+          </p>
+
+          <div className="hero-actions" style={{ marginTop: "32px" }}>
             <Link to="/gallery" className="button-link button-link-primary">{t.home.cta1}</Link>
             <Link to="/commissions" className="button-link button-link-ghost">{t.home.cta2}</Link>
           </div>

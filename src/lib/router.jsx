@@ -15,7 +15,7 @@ export function Router({ children }) {
   const navigate = useCallback((to) => {
     window.history.pushState({}, "", to);
     setPath(to);
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
 
   return (
