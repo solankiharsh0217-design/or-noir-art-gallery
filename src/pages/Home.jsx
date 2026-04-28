@@ -5,10 +5,23 @@ import { useLanguage } from "@/lib/language";
 
 const BASE = "https://media.base44.com/images/public/69f0a5ad50ec7e63b687358b/";
 
+// Real artwork images — curated selection for featured works
 const featuredWorks = [
-  { img: BASE + "art-work-1.jpg", style: "Gothic", title: "Rorschach I" },
-  { img: BASE + "art-work-2.jpg", style: "Mixed Media", title: "Memento" },
-  { img: BASE + "art-work-3.jpg", style: "Sculpture", title: "Chain & Bone" },
+  {
+    img: BASE + "59b58d0b2_150362945_236001824906801_795989140323528436_n1.jpg",
+    style: "Gothic Sculpture",
+    title: "Crimson Reverie",
+  },
+  {
+    img: BASE + "7bde4d431_558158506_18099952705723623_8234415805401986515_n1.jpg",
+    style: "Mixed Media",
+    title: "Vanitas Noir",
+  },
+  {
+    img: BASE + "655481426_622921792_3786502991653739_1129221404982768407_n1.jpg",
+    style: "Gothic Sculpture",
+    title: "The Crowned King",
+  },
 ];
 
 export default function Home() {
@@ -18,10 +31,13 @@ export default function Home() {
     <div>
       <Navbar />
 
-      {/* HERO */}
+      {/* HERO — dramatic red skeleton sculpture */}
       <section className="hero">
         <div className="hero-media">
-          <img src={BASE + "art-work-hero.jpg"} alt="Or Noir hero" />
+          <img
+            src={BASE + "59b58d0b2_150362945_236001824906801_795989140323528436_n1.jpg"}
+            alt="Or Noir — Crimson Reverie"
+          />
         </div>
         <div className="hero-overlay" />
         <div className="hero-content">
@@ -91,6 +107,32 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FOUNDER TEASER */}
+      <div className="artist-band">
+        <div className="artist-image">
+          <img
+            src={BASE + "3f326b9f6_614624532_18552024787057106_541868423091609032_n1.jpg"}
+            alt="Alessio Gentile — Founder, Or Noir"
+          />
+        </div>
+        <div className="artist-copy">
+          <p className="eyebrow">The Founder</p>
+          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px,5vw,64px)", fontWeight: 900, textTransform: "uppercase", margin: "0 0 22px", lineHeight: 0.95 }}>
+            Alessio<br />Gentile
+          </h2>
+          <p style={{ color: "var(--color-text-soft)", fontSize: "17px", lineHeight: 1.75, marginBottom: "16px" }}>
+            Founder of Or Noir Art Gallery and one of Europe's most distinctive mixed-media sculptors, Alessio Gentile built an international fine-art brand from a singular vision: that darkness, when mastered, becomes gold.
+          </p>
+          <p style={{ color: "var(--color-text-soft)", fontSize: "17px", lineHeight: 1.75 }}>
+            His works are held in private collections across four continents. His gallery in Switzerland operates as both a creative studio and a destination for collectors who refuse the ordinary.
+          </p>
+          <div style={{ marginTop: "32px" }}>
+            <Link to="/artist" className="button-link button-link-ghost" style={{ marginRight: "12px" }}>Meet Alessio</Link>
+            <Link to="/commissions" className="button-link button-link-primary">Commission a Piece</Link>
+          </div>
+        </div>
+      </div>
 
       {/* COMMISSION BAND */}
       <section className="commission">
