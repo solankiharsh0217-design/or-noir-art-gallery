@@ -12,35 +12,10 @@ const stepsIcons = [
   <Truck size={20} />,
 ];
 
-const stepContent = {
-  en: [
-    { title: "Initial Conversation", desc: "We begin with an open conversation about your space, your intentions, and your sensibility. No brief is too loose at this stage." },
-    { title: "Concept & Proposal", desc: "Based on our dialogue, Alessio develops a written proposal including material references, dimensional studies, and a production timeline. A deposit of 30% confirms the commission." },
-    { title: "Production", desc: "Production timelines range from 8 to 24 weeks depending on complexity. You receive progress updates at key milestones, and we welcome studio visits by appointment." },
-    { title: "Completion & Documentation", desc: "The finished work is photographed professionally before shipping. We offer installation guidance for all major works." },
-    { title: "Worldwide Delivery", desc: "We ship to collectors across Europe, the Americas, the Middle East, and Asia with specialist art handlers." },
-  ],
-  it: [
-    { title: "Conversazione Iniziale", desc: "Iniziamo con una conversazione aperta sul tuo spazio e le tue intenzioni." },
-    { title: "Concetto e Proposta", desc: "Alessio sviluppa una proposta scritta con riferimenti materiali e tempistiche. Un deposito del 30% conferma la commissione." },
-    { title: "Produzione", desc: "I tempi di produzione vanno da 8 a 24 settimane. Riceverai aggiornamenti ai principali traguardi." },
-    { title: "Completamento e Documentazione", desc: "L'opera finita viene fotografata professionalmente prima della spedizione." },
-    { title: "Consegna Mondiale", desc: "Spediamo a collezionisti in Europa, Americhe, Medio Oriente e Asia con spedizionieri specializzati." },
-  ],
-  de: [
-    { title: "Erstes Gespräch", desc: "Wir beginnen mit einem offenen Gespräch über Ihren Raum und Ihre Absichten." },
-    { title: "Konzept und Angebot", desc: "Alessio entwickelt ein schriftliches Angebot mit Materialreferenzen und Zeitplan. Eine Anzahlung von 30% bestätigt den Auftrag." },
-    { title: "Produktion", desc: "Produktionszeiten reichen von 8 bis 24 Wochen. Sie erhalten Fortschrittsupdates bei wichtigen Meilensteinen." },
-    { title: "Fertigstellung und Dokumentation", desc: "Das fertige Werk wird professionell fotografiert, bevor es versandt wird." },
-    { title: "Weltweite Lieferung", desc: "Wir liefern an Sammler in Europa, Amerika, dem Nahen Osten und Asien." },
-  ],
-};
-
 export default function Commissions() {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", description: "", budget: "", timeline: "" });
   const [submitted, setSubmitted] = useState(false);
-  const steps = stepContent[lang];
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); };
@@ -67,7 +42,7 @@ export default function Commissions() {
               <h2>{t.commissions.process_title}</h2>
             </div>
             <div className="detail-list" style={{ marginTop: "36px" }}>
-              {steps.map((step, i) => (
+              {t.commissions.steps.map((step, i) => (
                 <div key={i} className="detail-item">
                   <div style={{ color: "var(--color-accent)" }}>{stepsIcons[i]}</div>
                   <div>

@@ -45,18 +45,18 @@ export default function Home() {
           <p className="eyebrow" style={{ letterSpacing: "0.22em" }}>{t.home.eyebrow}</p>
 
           <h1 style={{ fontSize: "clamp(38px, 6.5vw, 80px)", lineHeight: 0.92, marginBottom: "0" }}>
-            <span style={{ display: "block", color: "var(--color-text)" }}>Where</span>
-            <span style={{ display: "block", color: "var(--color-accent)" }}>Darkness</span>
-            <span style={{ display: "block", color: "var(--color-text)" }}>Becomes Gold</span>
+            {t.home.h1.map((line, i) => (
+              <span key={i} style={{ display: "block", color: i === 1 ? "var(--color-accent)" : "var(--color-text)" }}>{line}</span>
+            ))}
           </h1>
 
           <div style={{ width: 48, height: 1, background: "var(--color-accent)", margin: "24px 0" }} />
 
           <p style={{ fontSize: "clamp(14px, 1.4vw, 17px)", color: "var(--color-text-soft)", maxWidth: "480px", lineHeight: 1.75, margin: "0 0 10px" }}>
-            Or Noir is a Swiss fine-art studio creating singular mixed-media sculptures — built entirely by hand, conceived to endure.
+            {t.home.hero_sub}
           </p>
           <p style={{ fontSize: "clamp(12px, 1.1vw, 14px)", color: "var(--color-text-muted)", maxWidth: "440px", lineHeight: 1.65, fontFamily: "var(--font-label)", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>
-            Bespoke commissions · Limited editions · Worldwide delivery
+            {t.home.hero_tagline}
           </p>
 
           <div className="hero-actions" style={{ marginTop: "32px" }}>
@@ -123,24 +123,24 @@ export default function Home() {
       <div className="artist-band">
         <div className="artist-image">
           <img
-            src={BASE + "3f326b9f6_614624532_18552024787057106_541868423091609032_n1.jpg"}
+            src="https://media.base44.com/images/public/69f0a5ad50ec7e63b687358b/17bed1cf4_619901967_18087549233026863_321123122223403389_n1.jpg"
             alt="Alessio Gentile — Founder, Or Noir"
           />
         </div>
         <div className="artist-copy">
-          <p className="eyebrow">The Founder</p>
+          <p className="eyebrow">{t.home.founder_eyebrow}</p>
           <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px,5vw,64px)", fontWeight: 900, textTransform: "uppercase", margin: "0 0 22px", lineHeight: 0.95 }}>
             Alessio<br />Gentile
           </h2>
           <p style={{ color: "var(--color-text-soft)", fontSize: "17px", lineHeight: 1.75, marginBottom: "16px" }}>
-            Founder of Or Noir Art Gallery and one of Europe's most distinctive mixed-media sculptors, Alessio Gentile built an international fine-art brand from a singular vision: that darkness, when mastered, becomes gold.
+            {t.home.founder_bio1}
           </p>
           <p style={{ color: "var(--color-text-soft)", fontSize: "17px", lineHeight: 1.75 }}>
-            His works are held in private collections across four continents. His gallery in Switzerland operates as both a creative studio and a destination for collectors who refuse the ordinary.
+            {t.home.founder_bio2}
           </p>
           <div style={{ marginTop: "32px" }}>
-            <Link to="/artist" className="button-link button-link-ghost" style={{ marginRight: "12px" }}>Meet Alessio</Link>
-            <Link to="/commissions" className="button-link button-link-primary">Commission a Piece</Link>
+            <Link to="/artist" className="button-link button-link-ghost" style={{ marginRight: "12px" }}>{t.home.founder_cta1}</Link>
+            <Link to="/commissions" className="button-link button-link-primary">{t.home.cta2}</Link>
           </div>
         </div>
       </div>
