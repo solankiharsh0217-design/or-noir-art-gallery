@@ -1,12 +1,14 @@
 import { Router, Routes, Route } from "@/lib/router";
-import Home from "@/pages/Home";
-import Gallery from "@/pages/Gallery";
-import Artist from "@/pages/Artist";
-import Commissions from "@/pages/Commissions";
-import Contact from "@/pages/Contact";
+import { LanguageProvider } from "@/lib/language";
+import Home from "@/pages/Home.jsx";
+import Gallery from "@/pages/Gallery.jsx";
+import Artist from "@/pages/Artist.jsx";
+import Commissions from "@/pages/Commissions.jsx";
+import Contact from "@/pages/Contact.jsx";
 
 export default function App() {
   return (
+    <LanguageProvider>
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -16,5 +18,6 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
+    </LanguageProvider>
   );
 }

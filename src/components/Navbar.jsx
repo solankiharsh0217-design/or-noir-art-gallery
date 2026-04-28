@@ -1,17 +1,21 @@
 import { useState } from "react";
 import { Link, useLocation } from "@/lib/router";
 import { Menu, X } from "lucide-react";
-
-const links = [
-  { label: "Gallery", path: "/gallery" },
-  { label: "Artist", path: "/artist" },
-  { label: "Commissions", path: "/commissions" },
-  { label: "Contact", path: "/contact" },
-];
+import { useLanguage } from "@/lib/language";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
+
+  const links = [
+    { label: t.nav.gallery, path: "/gallery" },
+    { label: t.nav.artist, path: "/artist" },
+    { label: t.nav.commissions, path: "/commissions" },
+    { label: t.nav.contact, path: "/contact" },
+  ];
+
+  const langs = ["en", "it", "de"];
 
   return (
     <>
@@ -23,18 +27,23 @@ export default function Navbar() {
         <div className="nav-links">
           {links.map((l) => (
             <Link key={l.path} to={l.path}>
-              <button
-                style={{ color: location.pathname === l.path ? "var(--color-text)" : undefined }}
-              >
+              <button style={{ color: location.pathname === l.path ? "var(--color-text)" : undefined }}>
                 {l.label}
               </button>
             </Link>
           ))}
         </div>
 
-        <div className="nav-actions">
+        <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <div className="language-control">
+            {langs.map((l) => (
+              <button key={l} aria-pressed={lang === l} onClick={() => setLang(l)} style={{ textTransform: "uppercase", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", background: "transparent", border: "none", color: lang === l ? "var(--color-accent)" : "var(--color-text-muted)", cursor: "pointer" }}>
+                {l}
+              </button>
+            ))}
+          </div>
           <Link to="/commissions" className="button-link button-link-primary">
-            Commission a Piece
+            {t.nav.cta}
           </Link>
         </div>
 
@@ -55,8 +64,15 @@ export default function Navbar() {
               <button>{l.label}</button>
             </Link>
           ))}
+          <div className="mobile-languages">
+            {langs.map((l) => (
+              <button key={l} aria-pressed={lang === l} onClick={() => setLang(l)} style={{ textTransform: "uppercase" }}>
+                {l}
+              </button>
+            ))}
+          </div>
           <Link to="/commissions" className="button-link button-link-primary" onClick={() => setOpen(false)}>
-            Commission a Piece
+            {t.nav.cta}
           </Link>
         </div>
       )}
