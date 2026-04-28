@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router";
 import { Mail, Instagram, Phone } from "lucide-react";
 
 export default function Footer() {

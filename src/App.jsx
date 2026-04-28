@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Router, Routes, Route } from "@/lib/router";
 import Home from "@/pages/Home";
 import Gallery from "@/pages/Gallery";
 import Artist from "@/pages/Artist";
