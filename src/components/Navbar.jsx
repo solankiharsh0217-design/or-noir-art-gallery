@@ -17,9 +17,7 @@ export default function Navbar() {
     <>
       <nav className="site-nav">
         <Link to="/" className="brand">
-          <span style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 900, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text)" }}>
-            Or Noir
-          </span>
+          <img src="https://media.base44.com/images/public/69f0a5ad50ec7e63b687358b/133d42c8c_b80a069ab_OrNoir_Logo_RGB_White_Rorschach-e1701373025483.png" alt="Or Noir" />
         </Link>
 
         <div className="nav-links">
@@ -51,6 +49,7 @@ export default function Navbar() {
           <button className="close-button icon-button" onClick={() => setOpen(false)} aria-label="Close menu">
             <X size={24} color="var(--color-text)" />
           </button>
+          <img src="https://media.base44.com/images/public/69f0a5ad50ec7e63b687358b/133d42c8c_b80a069ab_OrNoir_Logo_RGB_White_Rorschach-e1701373025483.png" alt="Or Noir" />
           {links.map((l) => (
             <Link key={l.path} to={l.path} onClick={() => setOpen(false)}>
               <button>{l.label}</button>
